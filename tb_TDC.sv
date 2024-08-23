@@ -10,18 +10,23 @@ module tb_frequency_meter;
     // 输出
     wire [31:0] ref_out;
     wire [31:0] meas_out;
-    wire start_ext;
-    wire stop_ext;
+    wire stop_pos_ext;
+    wire stop_neg_ext;
+    wire start_pos_ext;
+    wire start_neg_ext;
+
 
     // 实例化被测试模块
     frequency_meter uut (
-        .sys_rstn(sys_rstn),
-        .clk_ref(clk_ref),
-        .clk_meas(clk_meas),
-        .ref_out(ref_out),
-        .meas_out(meas_out),
-        .start_ext(start_ext),
-        .stop_ext(stop_ext)
+        sys_rstn,
+        clk_ref,
+        clk_meas,
+        ref_out,
+        meas_out,
+        start_pos_ext,
+        start_neg_ext,
+        stop_pos_ext,
+        stop_neg_ext
     );
 
     // 生成参考时钟 10MHz
